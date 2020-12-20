@@ -2,16 +2,37 @@
 <html>
 <head>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.803.0.min.js"></script>
+    <script src="./amazon-cognito-identity.min.js"></script>
+    <script src="./app.js"></script>
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div class="app-container">
     <h1>My Photo Albums App</h1>
+    <form id="signin" onsubmit="handleSubmit(event)" method="post">
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" id="uname" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="password" required>
+
+            <button type="submit">Login</button>
+        </div>
+    </form>
+    <form id="reset" onsubmit="handleReset(event)" method="post">
+        <div class="container">
+            <label for="newpasswd"><b>New Password</b></label>
+            <input type="password" placeholder="Enter New Password" id="newpasswd" required>
+            <button type="submit">Reset</button>
+        </div>
+    </form>
+
     <div id="app"></div>
 </div>
-<script src="./app.js"></script>
+
 <script>
-    listAlbums();
+    document.getElementById("reset").style.display = "none";
 </script>
 </body>
 </html>
